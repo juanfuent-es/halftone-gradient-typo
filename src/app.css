@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Big Noodle Titling';
+    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/big-noodle_gxfzrd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/barlow_eizans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813260/blender_bkewzj.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	color: #FFF;
+	background-color: #000;
+	font-family: 'Big Noodle Titling';
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}

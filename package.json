@@ -1,0 +1,29 @@
+{
+  "name": "empack-typography",
+  "version": "0.0.1",
+  "description": "Kinetic typography with halftones gradients.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "author": "juanfuent.es",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/juanfuent-es/halftone-type.git"
+  },
+  "keywords": [
+    "kinetic",
+    "typography",
+    "halftone",
+    "threejs"
+  ],
+  "bugs": {
+    "url": "https://github.com/juanfuent-es/halftone-type/issues"
+  },
+  "homepage": "https://github.com/juanfuent-es/halftone-type#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  }
+}
