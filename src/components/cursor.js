@@ -9,9 +9,9 @@ export default class Cursor extends Mouse {
         this.bg = args.bg || "#FFF"
         //
         this.container = document.createElement("div")
-        this.shape = document.createElement("div")
+        this.circle = document.createElement("div")
         //
-        this.container.appendChild(this.shape)
+        this.container.appendChild(this.circle)
         document.body.appendChild(this.container)
         //
         this.containerStyle()
@@ -27,24 +27,24 @@ export default class Cursor extends Mouse {
     }
 
     shapeStyle() {
-        this.shape.style.width = `${this.size}px`
-        this.shape.style.height = `${this.size}px`
+        this.circle.style.width = `${this.size}px`
+        this.circle.style.height = `${this.size}px`
         // Border
-        this.shape.style.borderWidth = `${this.borderWidth}px`
-        this.shape.style.borderColor = `${this.borderColor}`
-        this.shape.style.borderStyle = 'solid'
+        this.circle.style.borderWidth = `${this.borderWidth}px`
+        this.circle.style.borderColor = `${this.borderColor}`
+        this.circle.style.borderStyle = 'solid'
         // Position
-        this.shape.style.marginTop = '-50%'
-        this.shape.style.marginLeft = '-50%'
-        this.shape.style.borderRadius = '50%'
+        this.circle.style.marginTop = '-50%'
+        this.circle.style.marginLeft = '-50%'
+        this.circle.style.borderRadius = '50%'
 
-        this.shape.style.backgroundColor = `${this.bg}`
+        this.circle.style.backgroundColor = `${this.bg}`
     }
 
     render() {
         this.update()
         this.container.style.transform = 'translate3d(' + this.translate.x.toFixed(this.precision) + 'px ,' + this.translate.y.toFixed(this.precision) + 'px, 0)'
-        this.shape.style.transform = 'rotate(' + this.rotation.toFixed(this.precision) + 'deg) scale(' + (1 + this.scale) + ', ' + (1 - this.scale) + ')'
+        this.circle.style.transform = 'rotate(' + this.rotation.toFixed(this.precision) + 'deg) scale(' + (1 + this.scale) + ', ' + (1 - this.scale) + ')'
     }
 
 }
