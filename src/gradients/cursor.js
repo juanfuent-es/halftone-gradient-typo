@@ -4,12 +4,36 @@ import RadialGradient from "./radial"
 export default class GradientCursor extends Mouse {
     constructor(args = {}) {
         super()
-        this.size = 350
+        this.size = window.innerWidth * .5
         this.diameter = this.size * 2
         this.radial = new RadialGradient({
             x: this.pos.x,
             y: this.pos.y,
             size: this.size
+        })
+        this.events()
+    }
+    
+	events() {
+		document.addEventListener("click", ()=> this.change(), false)
+	}
+
+    change() {
+        this.radial.changeColor()
+        gsap.fromTo(this, {
+            duration: .65,
+            ease: Power3.easeIn,
+            size: window.innerWidth * .1,
+            onUpdate: () => {
+                this.radial.size = this.size
+            }
+        }, {
+            duration: 2,
+            ease: Power3.easeOut,
+            size: window.innerWidth * .5,
+            onUpdate: () => {
+                this.radial.size = this.size
+            }
         })
     }
 

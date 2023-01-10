@@ -52,12 +52,15 @@ main {
 	font-family: 'Blender Pro';
 	background: #000;
 	mix-blend-mode: multiply;
+	display: none;
 }
 
 h1 {
-	font-size: 96px;
-	max-width: 900px;
+	font-size: 10vw;
+	max-width: 80%;
 	text-align: center;
+	font-weight: 100;
+	line-height: .8em;
 }
 
 canvas {

@@ -1,4 +1,4 @@
-const PALETTE = ["#0CB1F2", "#EBF227", "#F2600C", "#F22E2E"];
+const PALETTE = ["#0F5CBF", "#0CB1F2", "#EBF227", "#F2600C", "#F22E2E"];
 
 function hex2rgba(_hex, alpha) {
 	const int = parseInt(_hex.replace("#", ""), 16);
@@ -22,6 +22,17 @@ export default class RadialGradient {
 		this.to = randomColor()
 		this.to_0 = hex2rgba(randomColor(), 0)
 		this.morph = 0
+	}
+
+	changeColor() {
+		gsap.to(this, {
+			duration: 1,
+			from: randomColor(),
+			from_0: hex2rgba(randomColor(), 0),
+			middle: randomColor(),
+			to: randomColor(),
+			to_0: hex2rgba(randomColor(), 0)
+		})
 	}
 
 	setMorph(_scale) {
