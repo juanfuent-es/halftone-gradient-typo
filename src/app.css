@@ -1,24 +1,24 @@
 @font-face {
-    font-family: 'Big Noodle Titling';
-    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/big-noodle_gxfzrd.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Big Noodle Titling';
+	src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/big-noodle_gxfzrd.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 @font-face {
-    font-family: 'Barlow';
-    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/barlow_eizans.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Barlow';
+	src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813259/barlow_eizans.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
 @font-face {
-    font-family: 'Blender Pro';
-    src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813260/blender_bkewzj.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Blender Pro';
+	src: url('https://res.cloudinary.com/losrodriguez/raw/upload/v1672813260/blender_bkewzj.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 
 body {
@@ -28,13 +28,13 @@ body {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
-    width: 100vw;
-    height: 100vh;
+	width: 100vw;
+	height: 100vh;
 }
 
 main {
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+	background: rgb(131, 58, 180);
+	background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -55,7 +55,25 @@ main {
 }
 
 h1 {
-    font-size: 96px;
-    max-width: 900px;
-    text-align: center;
+	font-size: 96px;
+	max-width: 900px;
+	text-align: center;
+}
+
+#cursor {
+	position: fixed;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+}
+
+#cursor-shape {
+	width: 32px;
+	height: 32px;
+	margin-top: -50%;
+	margin-left: -50%;
+	border-radius: 50%;
+	border: 2px solid #F2DA63;
+	background-color: #F24464;
 }

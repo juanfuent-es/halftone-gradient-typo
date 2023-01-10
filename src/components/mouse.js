@@ -10,7 +10,7 @@ export default class Mouse {
             x: 1,
             y: 1
         }
-        this.screen = {
+        this.pos = {
             x: window.innerWidth / 2,
             y: window.innerHeight / 2
         }
@@ -18,6 +18,7 @@ export default class Mouse {
         this.precision = 2
         this.friction = .1
         this.rotation = 0
+        this.scale = 0
         this.min = 0.3
         this.animate()
         this.events()
@@ -25,8 +26,8 @@ export default class Mouse {
 
     events() {
         document.addEventListener('mousemove', (e) => {
-            this.screen.x = e.clientX * PX_RATIO
-            this.screen.y = e.clientY * PX_RATIO
+            this.pos.x = e.clientX * PX_RATIO
+            this.pos.y = e.clientY * PX_RATIO
         }, false)
     }
 
@@ -52,10 +53,10 @@ export default class Mouse {
     }
 
     get dx() {
-        return this.screen.x - this.translate.x
+        return this.pos.x - this.translate.x
     }
 
     get dy() {
-        return this.screen.y - this.translate.y
+        return this.pos.y - this.translate.y
     }
 }

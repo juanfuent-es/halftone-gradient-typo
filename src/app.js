@@ -1,5 +1,7 @@
+import Cursor from "./components/cursor"
 class App {
 	constructor() {
+		this.cursor = new Cursor()
 		this.animate()
 	}
 	
@@ -9,6 +11,8 @@ class App {
 	}
 	
 	render() {
-		
+		this.cursor.render()
 	}
 }
+
+const _app = new App()
