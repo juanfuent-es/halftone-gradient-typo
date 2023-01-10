@@ -16,13 +16,14 @@ export default class GradientCursor extends Mouse {
     render(_ctx) {
         //Update mouse pos with verlet integration
         this.update()
+        this.radial.setMorph(this.morph)
         // 
         _ctx.save()
         _ctx.translate(this.translate.x - this.size, this.translate.y - this.size)
         _ctx.save()
         _ctx.translate(this.size, this.size)
         _ctx.rotate(-this.radians)
-        _ctx.scale(1 + this.scale, 1- this.scale)
+        _ctx.scale(1 + this.scale, 1 - this.scale)
         _ctx.translate(-this.size, -this.size)
         _ctx.globalCompositeOperation = "overlay" //lighter
         _ctx.fillStyle = this.radial.gradient(_ctx)

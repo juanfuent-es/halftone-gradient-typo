@@ -20,11 +20,12 @@ export default class Mouse {
             x: window.innerWidth / 2,
             y: window.innerHeight / 2
         }
-        this.max_distance = args.max_distance || 500
-        this.min_distance = args.min_distance || 0.3
-        this.precision = args.precision || 2
-        this.friction = args.friction || .1
+        this.max_distance = args.max_distance || 1000
+        this.min_morph = args.min_morph || 0.1
+        this.precision = args.precision || 1
+        this.friction = args.friction || .075
         this.rotation = 0
+        this.radians = 0
         this.scale = 0
         // mouseevent
         document.addEventListener('mousemove', (e) => {
@@ -33,23 +34,20 @@ export default class Mouse {
         }, false)
     }
 
-    speed_morph() {
+    get morph() {
         const dist = Math.dist(this.dx, this.dy)
-        const max = dist / this.max_distance
-        return Number(Math.min(max, this.min_distance).toFixed(2))
+        const vel = dist / this.max_distance
+        return Number(Math.min(vel, this.min_morph).toFixed(this.precision))
     }
 
     update() {
-        const speed_morph = this.speed_morph(this.dx, this.dy)
-        this.scale += (speed_morph - this.scale) * this.friction
+        this.scale += (this.morph - this.scale) * this.friction
 
         this.translate.x += this.dx * this.friction
         this.translate.y += this.dy * this.friction
 
-        // this.radians = this.rotation * (Math.PI / 180) + (Math.PI/2)
-        this.radians = Math.atan2(this.dx, this.dy)
-        this.rotation = this.radians * 180 / Math.PI //html rotation transform
-        this.radians += Math.PI / 2 // Fix rotation on canvas
+        this.rotation = Math.atan2(this.dy, this.dx) * 180 / Math.PI // degrees, css rotation
+        this.radians = Math.atan2(this.dx, this.dy) + Math.PI / 2 // radians, canvas rotation
     }
 
     get dx() {
