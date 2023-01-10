@@ -15,8 +15,6 @@ export default class RadialGradient {
 	constructor(args) {
 		if (args === undefined) args = {}
 		this.size = args.size || 100
-		this.x = args.x || 0
-		this.y = args.x || 0
 		this.from = randomColor()
 		this.from_0 = hex2rgba(this.from, 0)
 		this.middle = randomColor()
@@ -24,21 +22,17 @@ export default class RadialGradient {
 		this.to_0 = hex2rgba(this.to, 0)
 	}
 
-	updatePos(_pos) {
-		this.x = _pos.x
-		this.y = _pos.y
-	}
-	
 	gradient(_ctx) {
 		let time = new Date().getTime() * .0001
 		const grd = _ctx.createRadialGradient(
-			this.x,
-			this.y,
+			this.size,
+			this.size,
 			0,
-			this.x,
-			this.y,
-			Math.abs(Math.sin((time + this.x - this.y) * .0035) * this.size) + 50
+			this.size,
+			this.size,
+			this.size
 		)
+			// Math.abs(Math.sin((time + this.x - this.y) * .0035) * this.size) + 50
 		grd.addColorStop(0, this.from_0)
 		grd.addColorStop(.25, this.from)
 		grd.addColorStop(.5, this.middle)
