@@ -1,4 +1,4 @@
-const PX_RATIO = window.devicePixelRatio;
+import { PX_RATIO } from "../constants"
 
 Math.dist = (dx, dy) => {
     return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
