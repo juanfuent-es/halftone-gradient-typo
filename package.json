@@ -2,7 +2,6 @@
   "name": "empack-typography",
   "version": "0.0.1",
   "description": "Kinetic typography with halftones gradients.",
-  "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html"
