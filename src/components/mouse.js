@@ -47,7 +47,7 @@ export default class Mouse {
         this.translate.y += this.dy * this.friction
 
         // this.radians = this.rotation * (Math.PI / 180) + (Math.PI/2)
-        this.radians = Math.atan2(this.dy, this.dx)
+        this.radians = Math.atan2(this.dx, this.dy)
         this.rotation = this.radians * 180 / Math.PI //html rotation transform
         this.radians += Math.PI / 2 // Fix rotation on canvas
     }

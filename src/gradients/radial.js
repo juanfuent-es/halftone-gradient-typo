@@ -23,7 +23,8 @@ export default class RadialGradient {
 	}
 
 	gradient(_ctx) {
-		let time = new Date().getTime() * .0001
+		let time = new Date().getTime() * .00075
+		let _size = Math.abs(Math.sin(time) * this.size)
 		const grd = _ctx.createRadialGradient(
 			this.size,
 			this.size,
@@ -34,9 +35,9 @@ export default class RadialGradient {
 		)
 			// Math.abs(Math.sin((time + this.x - this.y) * .0035) * this.size) + 50
 		grd.addColorStop(0, this.from_0)
-		grd.addColorStop(.25, this.from)
-		grd.addColorStop(.5, this.middle)
-		grd.addColorStop(.75, this.to)
+		grd.addColorStop(Math.abs(Math.sin(time) * .25), this.from)
+		grd.addColorStop(Math.abs(Math.sin(time) * .25) + .25, this.middle)
+		grd.addColorStop(Math.abs(Math.sin(time) * .25) + .5, this.to)
 		grd.addColorStop(1, this.to_0)
 		return grd
 	}

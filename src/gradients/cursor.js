@@ -29,8 +29,6 @@ export default class GradientCursor extends Mouse {
         _ctx.fillRect(0, 0, this.diameter, this.diameter)
         _ctx.restore()
         _ctx.restore()
-        // this.container.style.transform = 'translate3d(' + this.translate.x.toFixed(this.precision) + 'px ,' + this.translate.y.toFixed(this.precision) + 'px, 0)'
-        // this.circle.style.transform = 'rotate(' + this.rotation.toFixed(this.precision) + 'deg) scale(' + (1 + this.scale) + ', ' + (1 - this.scale) + ')'
     }
 
 }
