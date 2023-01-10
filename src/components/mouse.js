@@ -1,11 +1,17 @@
-import { PX_RATIO } from "../constants"
+import {
+    PX_RATIO
+} from "../constants"
 
 Math.dist = (dx, dy) => {
     return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
 }
-
+/**
+ * @class
+ * @name {Mouse}
+ * @param {Object}
+ */
 export default class Mouse {
-    constructor() {
+    constructor(args = {}) {
         this.translate = {
             x: 1,
             y: 1
@@ -14,17 +20,13 @@ export default class Mouse {
             x: window.innerWidth / 2,
             y: window.innerHeight / 2
         }
-        this.max_distance = 500
-        this.precision = 2
-        this.friction = .1
+        this.max_distance = args.max_distance || 500
+        this.min_distance = args.min_distance || 0.3
+        this.precision = args.precision || 2
+        this.friction = args.friction || .1
         this.rotation = 0
         this.scale = 0
-        this.min = 0.3
-        this.animate()
-        this.events()
-    }
-
-    events() {
+        // mouseevent
         document.addEventListener('mousemove', (e) => {
             this.pos.x = e.clientX * PX_RATIO
             this.pos.y = e.clientY * PX_RATIO
@@ -34,12 +36,7 @@ export default class Mouse {
     speed_morph() {
         const dist = Math.dist(this.dx, this.dy)
         const max = dist / this.max_distance
-        return Number(Math.min(max, this.min).toFixed(2))
-    }
-
-    animate() {
-        requestAnimationFrame(() => this.animate())
-        this.update()
+        return Number(Math.min(max, this.min_distance).toFixed(2))
     }
 
     update() {
