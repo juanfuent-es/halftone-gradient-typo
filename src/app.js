@@ -16,7 +16,7 @@ function randomColor() {
 class App extends Canvas {
 	constructor() {
 		super()
-		this.container = document.querySelector("main")
+		this.container = document.querySelector("body")
 		this.container.appendChild(this.canvas)
 		this.bg = randomColor()
 		this.bg_0 = hex2rgba(this.bg, .15)

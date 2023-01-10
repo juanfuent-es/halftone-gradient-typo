@@ -50,8 +50,8 @@ main {
 	justify-content: center;
 	align-items: center;
 	font-family: 'Blender Pro';
-	/* background-color: #000; */
-	/* mix-blend-mode: multiply; */
+	background: #000;
+	mix-blend-mode: multiply;
 }
 
 h1 {
@@ -65,3 +65,4 @@ canvas {
 	left: 0;
 	top: 0;
 }
+

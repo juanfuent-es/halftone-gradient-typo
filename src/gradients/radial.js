@@ -16,11 +16,11 @@ export default class RadialGradient {
 		if (args === undefined) args = {}
 		this.size0 = args.size || 200
 		this.size = this.size0
-		this.from = hex2rgba(randomColor(), .95)
-		this.from_0 = hex2rgba(this.from, 0)
-		this.middle = hex2rgba(randomColor(), .95)
-		this.to = hex2rgba(randomColor(), .95)
-		this.to_0 = hex2rgba(this.to, 0)
+		this.from = randomColor()
+		this.from_0 = hex2rgba(randomColor(), 0)
+		this.middle = randomColor()
+		this.to = randomColor()
+		this.to_0 = hex2rgba(randomColor(), 0)
 		this.morph = 0
 	}
 
@@ -29,8 +29,7 @@ export default class RadialGradient {
 	}
 
 	gradient(_ctx) {
-		let time = new Date().getTime() * .000875
-		let _size = Math.abs(Math.sin(time) * this.size)
+		let time = new Date().getTime() * .001
 		const grd = _ctx.createRadialGradient(
 			this.size,
 			this.size,
@@ -40,10 +39,10 @@ export default class RadialGradient {
 			this.size
 		)
 		// Math.abs(Math.sin((time + this.x - this.y) * .0035) * this.size) + 50
-		grd.addColorStop(0.1, this.from_0)
-		grd.addColorStop((Math.cos(time + this.morph) * .15) + .25, this.from)
-		grd.addColorStop(Math.abs(Math.cos(time) * .25) + .25, this.middle)
-		grd.addColorStop((Math.sin(time + this.morph) * .35) + .55, this.to)
+		grd.addColorStop(0, this.from_0)
+		grd.addColorStop(.1, this.from) //(Math.cos(time + this.morph) * .15) + .25
+		// grd.addColorStop(Math.abs(Math.cos(time) * .25) + .25, this.middle)
+		grd.addColorStop((Math.sin(time + this.morph) * .3) + .65, this.to)
 		grd.addColorStop(1, this.to_0)
 		return grd
 	}

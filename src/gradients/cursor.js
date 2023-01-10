@@ -4,7 +4,7 @@ import RadialGradient from "./radial"
 export default class GradientCursor extends Mouse {
     constructor(args = {}) {
         super()
-        this.size = 150
+        this.size = 350
         this.diameter = this.size * 2
         this.radial = new RadialGradient({
             x: this.pos.x,
@@ -16,8 +16,8 @@ export default class GradientCursor extends Mouse {
     render(_ctx) {
         //Update mouse pos with verlet integration
         this.update()
-        this.radial.setMorph(this.morph)
-        // 
+        this.radial.setMorph(this.smooth_morph)
+        //
         _ctx.save()
         _ctx.translate(this.translate.x - this.size, this.translate.y - this.size)
         _ctx.save()

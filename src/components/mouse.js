@@ -21,12 +21,13 @@ export default class Mouse {
             y: window.innerHeight / 2
         }
         this.max_distance = args.max_distance || 1000
-        this.min_morph = args.min_morph || 0.1
+        this.min_morph = args.min_morph || 0.015
         this.precision = args.precision || 1
         this.friction = args.friction || .075
         this.rotation = 0
         this.radians = 0
         this.scale = 0
+        this.smooth_morph = 0
         // mouseevent
         document.addEventListener('mousemove', (e) => {
             this.pos.x = e.clientX * PX_RATIO
@@ -42,6 +43,7 @@ export default class Mouse {
 
     update() {
         this.scale += (this.morph - this.scale) * this.friction
+        this.smooth_morph += (this.morph - this.smooth_morph) * this.friction
 
         this.translate.x += this.dx * this.friction
         this.translate.y += this.dy * this.friction
